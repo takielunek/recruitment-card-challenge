@@ -84,5 +84,5 @@ mixin addPicture(url,imgClass,styles)
 
 ## Authors
 
-- [@dpierzak](https://github.com/dpierzak)
+- [@dpierzak](https://github.com/dpierzak) - dawid.pierzak@fcbhealthspark.com
 
