@@ -1,3 +1,23 @@
 extends defaults/layout.pug
 include defaults/mixins.pug
 block content
+    .container
+        .card__preview
+            .card__preview--number XXXX XXXX XXXX XXXX
+            .card__preview--holder Jan Kowalski
+        form.card__form
+            input.card__form--input(type="text" placeholder="Card number")
+            label(for="card__form--select")
+            select#card__form--select
+                option 01
+                option 02
+                option 03
+                option 04
+                option 05
+                option 06
+                option 07
+                option 08
+                option 09
+                option 10
+                option 11
+                option 12
