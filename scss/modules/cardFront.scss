@@ -1,0 +1,160 @@
+.card__container {
+  position: absolute;
+  top: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+  perspective: 1000px;
+}
+
+.card__front {
+  position: absolute;
+  backface-visibility: hidden;
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.card__content {
+  position: relative;
+  width: 230px;
+  padding: 20px;
+  border-radius: 10px;
+  background-image: var(--background-image-url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 6px 20px -2px $card-shadow, -5px 10px 30px 0 $card-shadow,
+    5px 10px 30px 0 $card-shadow, 0 0px 30px 0 $card-shadow;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $card-bg-shadow;
+    z-index: 1;
+    border-radius: 10px;
+  }
+}
+
+.card__content > * {
+  position: relative;
+  z-index: 2;
+}
+
+.card__hash {
+  display: flex;
+  margin: 25px 0;
+  font-family: "Source Code Pro";
+}
+
+.char-container {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+
+  &:nth-child(4n) {
+    margin-right: 15px;
+  }
+}
+
+.char {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $second-color;
+  font-weight: 300;
+  transition: transform 0.5s ease-in-out;
+
+  &.top {
+    transform: translateY(0);
+  }
+
+  &.bottom {
+    transform: translateY(100%);
+  }
+}
+
+.animate-up {
+  .top {
+    transform: translateY(-100%);
+  }
+
+  .bottom {
+    transform: translateY(0);
+  }
+}
+
+.animate-down {
+  .top {
+    transform: translateY(0);
+  }
+
+  .bottom {
+    transform: translateY(100%);
+  }
+}
+
+.card__box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__holder {
+  width: 75%;
+}
+
+.card__chip {
+  width: 40px;
+  height: 30px;
+}
+
+.card__image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card__visa {
+  width: 60px;
+  height: 30px;
+}
+
+.card__mastercard {
+  width: 40px;
+  height: 30px;
+}
+
+.card__discover {
+  width: 70px;
+  height: 12px;
+}
+
+.card__bank-logos {
+  position: relative;
+  width: 80px;
+  height: 32px;
+  overflow: hidden;
+}
+
+.card__bank-logos-img {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card__bank-logos-img.top-value {
+  transform: translateY(0);
+}
+
+.card__bank-logos-img.bottom-value {
+  transform: translateY(100%);
+}

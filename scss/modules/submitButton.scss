@@ -1,0 +1,17 @@
+.form__submit-button {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 12px;
+  background-color: $button-color;
+  color: $second-color;
+  border: 1px solid $button-color;
+  padding: 8px;
+  margin-top: 25px;
+  border-radius: 3px;
+  box-shadow: 0 6px 12px -2px $button-shadow, 0 8px 16px -4px $button-shadow;
+
+  &:hover {
+    background-color: $second-color;
+    color: $button-color;
+    border: 1px solid $button-color;
+  }
+}

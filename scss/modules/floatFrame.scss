@@ -1,0 +1,12 @@
+.frame {
+  position: absolute;
+  border: 1px solid $third-color;
+  border-radius: 2px;
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+  z-index: 3;
+  backface-visibility: hidden;
+}
+
+.invisible {
+  border-color: transparent;
+}

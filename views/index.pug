@@ -1,23 +1,62 @@
 extends defaults/layout.pug
 include defaults/mixins.pug
 block content
-    .container
-        .card__preview
-            .card__preview--number XXXX XXXX XXXX XXXX
-            .card__preview--holder Jan Kowalski
-        form.card__form
-            input.card__form--input(type="text" placeholder="Card number")
-            label(for="card__form--select")
-            select#card__form--select
-                option 01
-                option 02
-                option 03
-                option 04
-                option 05
-                option 06
-                option 07
-                option 08
-                option 09
-                option 10
-                option 11
-                option 12
+  .container
+    form(action="/submit", method="POST")
+      .form__container
+        .card__container
+          .card__flip
+            //-  Front of the card.
+            .card__front
+              .card__content
+                .card__image-container
+                  .card__chip-box
+                    +addPicture('chip.png', 'card__chip', null, 'Chip Image')
+                  .card__bank-logos(id="logoDisplay")
+                    .card__bank-logos-img.top-value
+                      +addPicture('visa.png', 'card__visa', null, 'Visa Image')
+                    .card__bank-logos-img.bottom-value
+                .card__hash(id="previewer")
+                .card__box
+                  .card__holder
+                    p.card__holder-text Card Holder
+                    .card__holder-date(id="cardNameDisplay")
+                      span#placeholder AD SOYAD
+                  .card__expires
+                    p.card__expires-text Expires
+                    .card__expires-date
+                      .card__expires-char
+                        .card__expires-char-month.top-value MM
+                        .card__expires-char-month.bottom-value
+                      span /
+                      .card__expires-char
+                        .card__expires-char-year.top-value YY
+                        .card__expires-char-year.bottom-value
+            //-  Back of the card.
+            .card__back
+              .card__back-magnetic-strip
+              .card__back-box
+                label.card__back-label(for="cvv") CVV
+                input.card__back-input.form__input(type="number", name="cvv")
+                +addPicture('discover.png', 'card__back-discover card__discover', null, 'Discover Image')
+
+        label.form__label(for="cardNumber") Card Number
+        input.form__input(id="cardNumber", type="number", name="cardNumber")
+
+        label.form__label(for="cardName") Card Name
+        input.form__input(id="cardName", type="text", name="cardName", autocomplete="off", pattern="[A-Za-z\s]*")
+
+        .form__inputs-container
+          .form__expiration-date-section
+            label.form__label(for="expirationDate") Expiration Date
+            .form__expiration-date-inputs
+              select.form__input.form__expiration-month(id="expirationMonth", name="expirationMonth", required)
+                option(value="", disabled, selected) Month
+              select.form__input.form__expiration-year(id="expirationYear", name="expirationYear")
+                option(value="", disabled, selected) Year
+
+          .form__cvv-section
+            label.form__cvv-label(for="cvv") CVV
+            input.form__input.form__cvv-input(id="cvv", type="number", name="cvv")
+
+        button.form__submit-button(type="submit") Submit

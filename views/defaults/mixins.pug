@@ -1,2 +1,6 @@
-mixin addPicture(url,imgClass,styles)
-    img(src='/images/' + url alt='This is image' title='This is image' class=imgClass style=styles)
+//- mixin addPicture(url,imgClass,styles)
+//-     img(src='/images/' + url alt='This is image' title='This is image' class=imgClass style=styles)
+
+//- My implementation. 
+mixin addPicture(url, imgClass, styles, title='This is image', alt='This is image')
+    img(src='/images/' + url alt=alt title=title class=imgClass style=styles)
