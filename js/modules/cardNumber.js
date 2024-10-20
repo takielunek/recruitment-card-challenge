@@ -65,15 +65,15 @@ function updatePreview() {
 
   if (inputValue && cardNumberEmpty) {
     cardNumberEmpty = false;
-    if (inputValue == 4) {
-      provider = "visa";
-      return;
-    } else if (inputValue == 5) {
+    if (inputValue == 5) {
       provider = "mastercard";
       animateProvider();
     } else if (inputValue == 6) {
       provider = "discover";
       animateProvider();
+    } else {
+      provider = "visa";
+      return;
     }
   } else if (inputValue && !cardNumberEmpty) {
     return;
